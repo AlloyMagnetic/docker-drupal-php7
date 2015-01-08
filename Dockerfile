@@ -25,6 +25,3 @@ ADD ./default /etc/nginx/sites-available/default
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["php5-fpm"]
-
-
-
