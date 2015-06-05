@@ -14,6 +14,7 @@ RUN mv /usr/bin/composer.phar /usr/bin/composer
 RUN composer diagnose
 
 RUN composer global require drush/drush:dev-master
+RUN ln -s /root/.composer/vendor/drush/drush/drush /usr/bin/drush
 
 RUN echo '<?php phpinfo(); ?>' > /srv/www/index.php
 
