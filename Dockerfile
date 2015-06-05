@@ -5,7 +5,7 @@ MAINTAINER lorello <lorenzo.salvadorini@softecspa.it>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN add-apt-repository -y ppa:ondrej/php5 && apt-get update
-RUN apt-get update -qqy && apt-get -y install php5 php5-fpm php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-gd php5-pgsql php5-sqlite php5-common php-pear php5-json php5-redis php5-memcache php5-mongo php5-mysqlnd php5-mysqlnd-ms
+RUN apt-get update -qqy && apt-get -y install php5 php5-fpm php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-gd php5-pgsql php5-sqlite php5-common php-pear php5-json php5-redis php5-memcache php5-mongo php5-mysqlnd php5-mysqlnd-ms php5-sqlite sqlite3
 
 
 # Setup composer
