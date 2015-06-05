@@ -13,6 +13,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/
 RUN mv /usr/bin/composer.phar /usr/bin/composer
 RUN composer diagnose
 
+RUN composer global require drush/drush:dev-master
+
 RUN echo '<?php phpinfo(); ?>' > /srv/www/index.php
 
 # Setup Nginx
@@ -25,4 +27,4 @@ ADD ./php-fpm-pool.conf /etc/php5/fpm/pool.d/www.conf
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD service php5-fpm start && dockerize -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log nginx 
+CMD service php5-fpm start && dockerize -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log nginx
