@@ -13,7 +13,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/
 RUN mv /usr/bin/composer.phar /usr/bin/composer
 RUN composer diagnose
 
-RUN composer global require drush/drush:dev-master
+RUN composer global require drush/drush:7.*
 RUN ln -s /root/.composer/vendor/drush/drush/drush /usr/bin/drush
 
 RUN echo '<?php phpinfo(); ?>' > /srv/www/index.php
