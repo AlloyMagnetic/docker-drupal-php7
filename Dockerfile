@@ -1,4 +1,4 @@
-FFROM lorello/docker-ubuntu
+FROM lorello/docker-ubuntu
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN add-apt-repository -y ppa:nginx/stable
