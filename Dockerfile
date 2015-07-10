@@ -19,6 +19,9 @@ RUN ln -s /root/.composer/vendor/drush/drush/drush /usr/bin/drush
 RUN echo '<?php phpinfo(); ?>' > /srv/www/index.php
 
 # Setup Nginx
+ADD ./nginx.conf /etc/nginx/nginx.conf
+ADD ./fastcgi_drupal.conf /etc/nginx/fastcgi_drupal.conf
+ADD ./fastcgi_drupal.conf /etc/nginx/fastcgi_no_args_drupal.conf
 ADD ./default /etc/nginx/sites-available/default
 
 # Setup PHP-FPM
