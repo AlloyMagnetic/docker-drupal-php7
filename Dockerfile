@@ -1,4 +1,4 @@
-FROM lorello/octohost-nginx
+FFROM lorello/docker-ubuntu
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN add-apt-repository -y ppa:nginx/stable
