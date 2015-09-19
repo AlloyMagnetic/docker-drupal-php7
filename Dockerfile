@@ -3,7 +3,7 @@ FROM lorello/docker-ubuntu
 ENV DEBIAN_FRONTEND noninteractive
 RUN add-apt-repository -y ppa:nginx/stable
 RUN add-apt-repository -y ppa:ondrej/php5 && apt-get update
-RUN apt-add-repository ppa:ansible/ansible
+RUN apt-add-repository -y ppa:ansible/ansible
 RUN apt-get update -qqy && apt-get -qqy install nginx-extras mysql-client php5 php5-fpm php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-gd php5-pgsql php5-sqlite php5-common php-pear php5-json php5-redis php5-memcache php5-mongo php5-mysqlnd php5-mysqlnd-ms php5-sqlite sqlite3 python-softlayer ansible
 
 
