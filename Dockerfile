@@ -2,9 +2,9 @@ FROM lorello/docker-ubuntu
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN add-apt-repository -y ppa:nginx/stable
-RUN add-apt-repository -y ppa:ondrej/php5 && apt-get update
+RUN add-apt-repository -y ppa:ondrej/php7 && apt-get update
 RUN apt-add-repository -y ppa:ansible/ansible
-RUN apt-get update -qqy && apt-get -qqy install nginx-extras mysql-client php5 php5-fpm php-apc php5-imagick php5-imap php5-mcrypt php5-curl php5-gd php5-pgsql php5-sqlite php5-common php-pear php5-json php5-redis php5-memcache php5-mongo php5-mysqlnd php5-mysqlnd-ms php5-sqlite sqlite3 python-softlayer ansible
+RUN apt-get update -qqy && apt-get -qqy install nginx-extras mysql-client php7 php7-fpm php-apc php7-imagick php7-imap php7-mcrypt php7-curl php7-gd php7-pgsql php7-sqlite php7-common php-pear php7-json php7-redis php7-memcache php7-mongo php7-mysqlnd php7-mysqlnd-ms php7-sqlite sqlite3 python-softlayer ansible
 
 
 # Setup Nginx
@@ -39,11 +39,11 @@ ADD ./default /etc/nginx/sites-available/default
 
 # Setup PHP-FPM
 #RUN sed -i '/daemonize /c \
-#daemonize = no' /etc/php5/fpm/php-fpm.conf
-ADD ./php-fpm-pool.conf /etc/php5/fpm/pool.d/www.conf
+#daemonize = no' /etc/php7/fpm/php-fpm.conf
+ADD ./php-fpm-pool.conf /etc/php7/fpm/pool.d/www.conf
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 80
 
-CMD service php5-fpm start && dockerize -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log nginx
+CMD service php7-fpm start && dockerize -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log nginx
